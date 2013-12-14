@@ -11,7 +11,7 @@ typedef boost::asio::ip::address IPAddress;
 
 namespace common
 {
-BOOST_STRONG_TYPEDEF(int, Prefix);
+BOOST_STRONG_TYPEDEF(uint8_t, Prefix);
 
 inline IPv4Address generateNetmask( common::Prefix prefix ) {
     
@@ -19,7 +19,7 @@ inline IPv4Address generateNetmask( common::Prefix prefix ) {
         return IPv4Address();    
     }   
 
-    const unsigned int max_ipv4_bitsize = 32; // ipv4 address are always based on 32 bits
+    const uint8_t max_ipv4_bitsize = 32; // ipv4 address are always based on 32 bits
     if(prefix > max_ipv4_bitsize ) {
         std::ostringstream str;
         str << "Invalid netmask size (" << prefix << ") - may not exceed " << max_ipv4_bitsize << ".";
