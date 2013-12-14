@@ -5,10 +5,12 @@
 #include <string>
 #include <boost/array.hpp>
 #include "commonExceptions.h"
+#include "memory.h"
+#include <cstdio>
 
 class MacAddr : public boost::array<unsigned char, ETH_ALEN> {
  public:
-    MacAddr(u_int8_t source[ETH_ALEN]) {
+    MacAddr(const u_int8_t source[ETH_ALEN]) {
         memcpy(this->c_array(), &(source[0]), this->size()); 
     }
     
