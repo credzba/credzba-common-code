@@ -65,6 +65,14 @@ inline IPv4Address generateNetmask( common::Prefix prefix ) {
         return networkId;
     }
 
+inline
+IPv4Address from_in_addr_t(const in_addr_t& nativeIpv4Address) {
+    IPv4Address::bytes_type bytes;
+    memcpy(&bytes, &nativeIpv4Address, 4);
+    return IPv4Address(bytes);
+}
+
+
 
     /** 
      * Computes the subnet portion of an address based on the prefix

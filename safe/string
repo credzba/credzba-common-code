@@ -1,0 +1,37 @@
+#ifndef STRNCPY_H
+#define STRNCPY_H
+#include_next <string>
+
+namespace safe {
+
+/**
+ * does strncpy, but guarantees string destination termination
+ *
+ @detail performs the copy, then always write a null to the
+ * last position to ensure termination
+ *
+ * @param output destination address for the copy
+ * @param pSrc source address for the copy
+ * @param charCount size of the destination buffer
+ *
+ * @return pointer to output like strcpy and strncpy do
+ */
+inline
+char* strncpy(char *output, const char*const pSrc, size_t charCount)
+{
+    char* tempPtr = ::strncpy(output, pSrc, charCount);
+    output[charCount - 1] = 0;
+    return tempPtr;
+}
+
+} // end common namespace
+
+#endif
+// Tells emacs this is a c++ file
+// Local Variables:
+// mode: c++
+// End:
+
+
+}
+}
