@@ -1,6 +1,7 @@
 #ifndef STRNCPY_H
 #define STRNCPY_H
 #include_next <string>
+#include_next <string.h>
 
 namespace safe {
 
@@ -32,6 +33,3 @@ char* strncpy(char *output, const char*const pSrc, size_t charCount)
 // mode: c++
 // End:
 
-
-}
-}
